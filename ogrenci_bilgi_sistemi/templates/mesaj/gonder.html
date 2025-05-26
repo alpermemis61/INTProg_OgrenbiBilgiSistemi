@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+    <h4 class="mb-4 text-center">📨 Yeni Mesaj Gönder</h4>
+
+    <form method="POST">
+        <div class="mb-3">
+            <label for="alici_id" class="form-label">Alıcı (Kime)</label>
+            <select class="form-select" name="alici_id" required>
+                {% for user in kullanicilar %}
+                {% if user.id != current_user.id %}
+                <option value="{{ user.id }}">{{ user.name }} ({{ user.rol }})</option>
+                {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="icerik" class="form-label">Mesaj İçeriği</label>
+            <textarea class="form-control" name="icerik" rows="4" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Gönder</button>
+    </form>
+</div>
+{% endblock %}

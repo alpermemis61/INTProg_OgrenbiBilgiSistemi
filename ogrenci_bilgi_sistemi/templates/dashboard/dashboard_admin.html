@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Yönetim Paneli</h1>
+    <p>Hoş geldiniz, {{ current_user.name }}!</p>
+
+    <ul class="list-group">
+        <li class="list-group-item"><a href="{{ url_for('ogrenci_listesi') }}">Öğrencileri Yönet</a></li>
+        <li class="list-group-item"><a href="{{ url_for('duyuru_ekle') }}">Duyuru Oluştur</a></li>
+        <li class="list-group-item"><a href="{{ url_for('not_aralik_ekle') }}">Not Aralığı Ayarla</a></li>
+        <li class="list-group-item"><a href="{{ url_for('yedekle') }}">Veritabanını Yedekle</a></li>
+        <li class="list-group-item"><a href="{{ url_for('geri_yukle') }}">Veritabanını Geri Yükle</a></li>
+    </ul>
+</div>
+{% endblock %}

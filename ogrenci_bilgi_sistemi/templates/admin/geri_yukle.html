@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h3>Veritabanı Geri Yükleme</h3>
+    <form method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="yedek" class="form-label">.db Dosyası Seç</label>
+            <input type="file" name="yedek" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Yükle</button>
+    </form>
+</div>
+{% endblock %}

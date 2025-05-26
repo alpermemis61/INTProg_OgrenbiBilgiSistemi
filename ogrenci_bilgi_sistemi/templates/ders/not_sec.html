@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5" style="max-width: 600px;">
+    <div class="card shadow">
+        <div class="card-body">
+            <h4 class="text-center mb-4">📝 Not Girişi İçin Seçim Yap</h4>
+
+            <form method="POST">
+                <div class="mb-3">
+                    <label class="form-label">Öğrenci Seç</label>
+                    <select name="ogrenci_id" class="form-select" required>
+                        <option value="">-- Öğrenci Seçin --</option>
+                        {% for ogr in ogrenciler %}
+                        <option value="{{ ogr.id }}">{{ ogr.ad }} - {{ ogr.ogrenci_no }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Ders Seç</label>
+                    <select name="ders_id" class="form-select" required>
+                        <option value="">-- Ders Seçin --</option>
+                        {% for ders in dersler %}
+                        <option value="{{ ders.id }}">{{ ders.ad }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Devam Et</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

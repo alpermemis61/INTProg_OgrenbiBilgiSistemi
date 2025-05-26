@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+    <h2>Öğrenciye Ders Ata</h2>
+    <form method="POST" action="{{ url_for('ders_ata') }}">
+        <div class="mb-3">
+            <label class="form-label">Öğrenci ID</label>
+            <input type="number" name="ogrenci_id" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Ders ID</label>
+            <input type="number" name="ders_id" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-success w-100">Ders Ata</button>
+    </form>
+</div>
+{% endblock %}

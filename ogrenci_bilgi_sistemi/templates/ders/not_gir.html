@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5" style="max-width: 600px;">
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h4 class="card-title text-center mb-4">📝 Not Girişi</h4>
+
+            <p><strong>Öğrenci:</strong> {{ ogrenci.ad }}</p>
+            <p><strong>Ders:</strong> {{ ders.ad }}</p>
+
+            <form method="POST">
+                <div class="mb-3">
+                    <label class="form-label">Vize Notu</label>
+                    <input type="number" name="vize" class="form-control" min="0" max="100" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Final Notu</label>
+                    <input type="number" name="final" class="form-control" min="0" max="100" required>
+                </div>
+                <button type="submit" class="btn btn-success w-100">Notları Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

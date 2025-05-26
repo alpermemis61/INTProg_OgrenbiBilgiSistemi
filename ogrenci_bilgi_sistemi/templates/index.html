@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="text-center">
+    <h1>🎓 Öğrenci Bilgi Sistemine Hoş Geldiniz</h1>
+    <p class="lead">Dersler, notlar, öğrenci takibi – hepsi tek bir platformda.</p>
+    <a href="{{ url_for('login') }}" class="btn btn-outline-primary btn-lg mt-3">Giriş Yap</a>
+    <a href="{{ url_for('register') }}" class="btn btn-primary btn-lg mt-3 ms-2">Kayıt Ol</a>
+</div>
+{% endblock %}

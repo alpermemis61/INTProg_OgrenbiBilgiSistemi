@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5 text-center">
+    <h2 class="mb-2">Öğretim Üyesi Paneli</h2>
+    <p class="mb-4">Hoş geldiniz, <strong>{{ current_user.name }}</strong></p>
+
+    <div class="d-grid gap-3 col-6 mx-auto">
+        <a href="{{ url_for('ogrenci_listesi') }}" class="btn btn-primary">📄 Öğrenci Listesi</a>
+        <a href="{{ url_for('ders_ekle') }}" class="btn btn-secondary">🧊 Yeni Ders Tanımla</a>
+        <a href="{{ url_for('ders_ata') }}" class="btn btn-warning text-dark">📂 Öğrenciye Ders Ata</a>
+        <a href="{{ url_for('not_giris_sec') }}" class="btn btn-danger">📝 Not Girişi</a>
+        <a href="{{ url_for('not_aralik_ekle') }}" class="btn btn-outline-secondary w-100 my-2">
+            🔧 Harf Notu Ayarları
+        </a>
+
+        <a href="{{ url_for('program_ekle') }}" class="btn btn-outline-info w-100 my-2">📅 Ders Programı Ekle</a>
+        <a href="{{ url_for('duyuru_ekle') }}" class="btn btn-info w-100 my-2">
+            📢 Yeni Duyuru Oluştur
+        </a>
+        <a href="{{ url_for('mesaj_gonder') }}" class="btn btn-outline-secondary">➕ Mesaj Gönder</a>
+        <a href="{{ url_for('mesajlar') }}" class="btn btn-outline-secondary">➕ Gelen Mesajlar</a>
+
+
+
+    </div>
+</div>
+{% endblock %}

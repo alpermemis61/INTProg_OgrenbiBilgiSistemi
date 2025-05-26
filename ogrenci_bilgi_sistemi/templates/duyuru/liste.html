@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+    <h3>📌 Yayındaki Duyurular</h3>
+    {% for d in duyurular %}
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">{{ d.baslik }}</h5>
+            <p class="card-text">{{ d.icerik }}</p>
+            <small class="text-muted">{{ d.tarih.strftime('%d.%m.%Y %H:%M') }}</small>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

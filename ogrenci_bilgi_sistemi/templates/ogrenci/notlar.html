@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h3 class="text-center mb-4">📘 Sınav Sonuçlarım</h3>
+
+    {% if notlar %}
+    <table class="table table-bordered text-center">
+        <thead class="table-dark">
+            <tr>
+                <th>Ders</th>
+                <th>Vize</th>
+                <th>Final</th>
+                <th>Ortalama</th>
+                <th>Durum</th>
+                <th>Harf Notu</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for n in notlar %}
+            <tr>
+                <td>{{ dersler[n.ders_id] }}</td>
+                <td>{{ n.vize }}</td>
+                <td>{{ n.final }}</td>
+                <td>{{ n.ortalama }}</td>
+                <td>
+                    {% if n.durum == 'Geçti' %}
+                    <span class="badge bg-success">Geçti</span>
+                    {% elif n.durum == 'Şartlı Geçti' %}
+                    <span class="badge bg-warning text-dark">Şartlı Geçti</span>
+                    {% else %}
+                    <span class="badge bg-danger">Kaldı</span>
+                    {% endif %}
+                </td>
+                <td>{{ n.harf_notu }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <div class="alert alert-info text-center">Henüz not girilmemiş.</div>
+    {% endif %}
+
+    <div class="mt-4 text-center">
+        <a href="{{ url_for('notlar_pdf', ogrenci_id=current_user.id) }}" class="btn btn-outline-primary me-2">📄 PDF
+            İndir</a>
+        <a href="{{ url_for('notlar_excel', ogrenci_id=current_user.id) }}" class="btn btn-outline-success">📊 Excel
+            İndir</a>
+    </div>
+</div>
+{% endblock %}

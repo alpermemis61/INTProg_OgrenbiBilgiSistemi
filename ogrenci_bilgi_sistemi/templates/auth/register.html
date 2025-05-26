@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card p-4">
+            <h2 class="mb-3">Kayıt Ol</h2>
+            <form method="POST" action="{{ url_for('register') }}">
+                <div class="mb-3">
+                    <label class="form-label">Ad Soyad</label>
+                    <input type="text" name="name" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">E-posta</label>
+                    <input type="email" name="email" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Şifre</label>
+                    <input type="password" name="password" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Telefon</label>
+                    <input type="text" name="text" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Rol</label>
+                    <select name="rol" class="form-select" required>
+                        <option value="">Rol Seçiniz</option>
+                        <option value="ogrenci">Öğrenci</option>
+                        <option value="ogretim_uyesi">Öğretim Üyesi</option>
+                        <option value="rol">Admin</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Kayıt Ol</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

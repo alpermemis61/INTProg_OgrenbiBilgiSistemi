@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h3 class="mb-4 text-center">✏️ Harf Notu Aralığını Düzenle</h3>
+
+    <form method="POST">
+        <div class="row mb-3">
+            <div class="col">
+                <label for="min" class="form-label">Minimum Not</label>
+                <input type="number" step="0.1" class="form-control" id="min" name="min_puan"
+                    value="{{ aralik.min_puan }}" required>
+            </div>
+            <div class="col">
+                <label for="max" class="form-label">Maksimum Not</label>
+                <input type="number" step="0.1" class="form-control" id="max" name="max_puan"
+                    value="{{ aralik.max_puan }}" required>
+            </div>
+            <div class="col">
+                <label for="harf" class="form-label">Harf Notu</label>
+                <input type="text" class="form-control" id="harf" name="harf" value="{{ aralik.harf }}" required>
+            </div>
+            <div class="col">
+                <label for="durum" class="form-label">Durum</label>
+                <select class="form-select" id="durum" name="durum">
+                    <option value="Geçti" {% if aralik.durum=="Geçti" %}selected{% endif %}>Geçti</option>
+                    <option value="Şartlı Geçti" {% if aralik.durum=="Şartlı Geçti" %}selected{% endif %}>Şartlı Geçti
+                    </option>
+                    <option value="Kaldı" {% if aralik.durum=="Kaldı" %}selected{% endif %}>Kaldı</option>
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success">Güncelle</button>
+        <a href="{{ url_for('not_aralik_ekle') }}" class="btn btn-secondary">Geri Dön</a>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+    <h3 class="text-center">📨 Mesaj Kutusu</h3>
+
+    <div class="text-end mb-3">
+        <a href="{{ url_for('mesaj_gonder') }}" class="btn btn-primary">➕ Yeni Mesaj Gönder</a>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h5>📥 Gelen Mesajlar</h5>
+            {% if gelenler %}
+            <ul class="list-group">
+                {% for mesaj in gelenler %}
+                <li class="list-group-item">
+                    <strong>{{ mesaj.gonderen.name }}:</strong> {{ mesaj.icerik }} <br>
+                    <small class="text-muted">{{ mesaj.tarih.strftime('%d.%m.%Y %H:%M') }}</small>
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p class="text-muted">Gelen mesaj yok.</p>
+            {% endif %}
+        </div>
+
+        <div class="col-md-6">
+            <h5>📤 Gönderilen Mesajlar</h5>
+            {% if gidenler %}
+            <ul class="list-group">
+                {% for mesaj in gidenler %}
+                <li class="list-group-item">
+                    <strong>{{ mesaj.alici.name }}:</strong> {{ mesaj.icerik }} <br>
+                    <small class="text-muted">{{ mesaj.tarih.strftime('%d.%m.%Y %H:%M') }}</small>
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p class="text-muted">Gönderilen mesaj yok.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+body {
+  background: linear-gradient(135deg, #f0f4ff, #dfe9f3);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+  margin-top: 50px;
+}
+
+h1,
+h2 {
+  font-weight: 700;
+  color: #333;
+}
+
+.card {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+
+.form-control {
+  border-radius: 8px;
+}

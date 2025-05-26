@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">✏️ Öğrenci Bilgilerini Düzenle</h2>
+    <form method="POST">
+        <div class="mb-3">
+            <label class="form-label">Ad Soyad</label>
+            <input type="text" name="ad" class="form-control" value="{{ ogrenci.ad }}" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Öğrenci Numarası</label>
+            <input type="text" name="ogrenci_no" class="form-control" value="{{ ogrenci.ogrenci_no }}" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">E-posta</label>
+            <input type="email" name="email" class="form-control" value="{{ ogrenci.email }}">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Telefon</label>
+            <input type="text" name="telefon" class="form-control" value="{{ ogrenci.telefon }}">
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Bilgileri Güncelle</button>
+    </form>
+</div>
+{% endblock %}

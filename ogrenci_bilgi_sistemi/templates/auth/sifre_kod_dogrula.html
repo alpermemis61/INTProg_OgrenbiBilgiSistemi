@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">✅ Kod Doğrulama & Yeni Şifre</h2>
+    <form method="POST">
+        <div class="mb-3">
+            <label class="form-label">Doğrulama Kodu</label>
+            <input type="text" name="kod" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Yeni Şifre</label>
+            <input type="password" name="yeni_sifre" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-success w-100">Şifremi Güncelle</button>
+    </form>
+</div>
+{% endblock %}

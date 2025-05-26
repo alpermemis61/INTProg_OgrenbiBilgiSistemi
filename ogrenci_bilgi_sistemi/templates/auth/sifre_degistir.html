@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5" style="max-width: 500px;">
+    <h3 class="text-center mb-4">🔒 Şifremi Değiştir</h3>
+    <form method="POST">
+        <div class="mb-3">
+            <label>Mevcut Şifre</label>
+            <input type="password" name="eski_sifre" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label>Yeni Şifre</label>
+            <input type="password" name="yeni_sifre" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Şifreyi Güncelle</button>
+    </form>
+</div>
+{% endblock %}

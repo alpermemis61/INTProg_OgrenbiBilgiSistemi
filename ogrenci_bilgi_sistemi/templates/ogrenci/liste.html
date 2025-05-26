@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">📋 Öğrenci Listesi</h2>
+
+    {% if ogrenciler %}
+    <table class="table table-hover table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>#</th>
+                <th>Ad Soyad</th>
+                <th>Öğrenci No</th>
+                <th>E-posta</th>
+                <th>Telefon</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ogr in ogrenciler %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ ogr.ad }}</td>
+                <td>{{ ogr.ogrenci_no }}</td>
+                <td>{{ ogr.email or "-" }}</td>
+                <td>{{ ogr.telefon or "-" }}</td>
+                <td>
+                    <a href="{{ url_for('ogrenci_duzenle', id=ogr.id) }}" class="btn btn-sm btn-primary">✏️ Düzenle</a>
+                    <a href="{{ url_for('ogrenci_sil', id=ogr.id) }}" class="btn btn-sm btn-danger"
+                        onclick="return confirm('Silmek istediğinizden emin misiniz?')">🗑️ Sil</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <div class="alert alert-info text-center">Henüz öğrenci kaydı yok.</div>
+    {% endif %}
+</div>
+{% endblock %}

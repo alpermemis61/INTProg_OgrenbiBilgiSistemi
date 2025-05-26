@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+    <h2>Yeni Ders Tanımla</h2>
+    <form method="POST" action="{{ url_for('ders_ekle') }}">
+        <div class="mb-3">
+            <label class="form-label">Ders Adı</label>
+            <input type="text" name="ad" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Kredi</label>
+            <input type="number" name="kredi" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Anabilim Dalı ID</label>
+            <input type="number" name="anabilim_dali_id" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Dersi Kaydet</button>
+    </form>
+</div>
+{% endblock %}

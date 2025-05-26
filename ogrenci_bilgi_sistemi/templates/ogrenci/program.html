@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h3 class="text-center mb-4">📅 Haftalık Ders Programım</h3>
+
+    {% if programlar %}
+    <table class="table table-bordered text-center">
+        <thead class="table-light">
+            <tr>
+                <th>Ders</th>
+                <th>Gün</th>
+                <th>Saat</th>
+                <th>Sınıf</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in programlar %}
+            <tr>
+                <td>{{ p.ders.ad }}</td>
+                <td>{{ p.gun }}</td>
+                <td>{{ p.saat }}</td>
+                <td>{{ p.sinif }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <div class="alert alert-info text-center">Henüz bir ders programınız oluşturulmamış.</div>
+    {% endif %}
+</div>
+{% endblock %}

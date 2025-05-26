@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h3 class="mb-4 text-center">📅 Ders Programı Oluştur</h3>
+    <form method="POST" action="{{ url_for('program_ekle') }}">
+        <div class="mb-3">
+            <label class="form-label">Ders Seçin</label>
+            <select name="ders_id" class="form-select" required>
+                {% for ders in dersler %}
+                <option value="{{ ders.id }}">{{ ders.ad }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Öğrenci Seçin</label>
+            <select name="ogrenci_id" class="form-select" required>
+                {% for ogr in ogrenciler %}
+                <option value="{{ ogr.id }}">{{ ogr.ad }} - {{ ogr.ogrenci_no }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Gün</label>
+            <select name="gun" class="form-select" required>
+                <option>Pazartesi</option>
+                <option>Salı</option>
+                <option>Çarşamba</option>
+                <option>Perşembe</option>
+                <option>Cuma</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Saat (örn: 10:00 - 11:00)</label>
+            <input type="text" name="saat" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Sınıf</label>
+            <input type="text" name="sinif" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Programı Kaydet</button>
+    </form>
+</div>
+{% endblock %}
